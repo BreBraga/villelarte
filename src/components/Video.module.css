@@ -1,0 +1,70 @@
+.section {
+  padding-bottom: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+.title {
+  font-size: clamp(40px, 4.6vw, 56px);
+  margin: 8px 0 14px;
+}
+.text {
+  font-size: 18px;
+  color: var(--muted);
+}
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--carvao);
+  border: 6px solid #fff;
+}
+.frame.frame {
+  /* keep the tilt after .reveal clears its transform */
+  rotate: 1.2deg;
+}
+.frame iframe,
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.poster {
+  cursor: pointer;
+  background: #000 center / cover no-repeat;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.poster span {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--vinho);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s;
+}
+.poster:hover span {
+  transform: scale(1.08);
+}
+.poster svg {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  fill: #fff;
+}
+
+@media (max-width: 850px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

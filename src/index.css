@@ -1,0 +1,182 @@
+/* Design System "Palco Afetivo": tokens */
+:root {
+  --vinho: #a80d0d;
+  --vinho-sombra: #7d0909;
+  --terracota: #c64a22;
+  --laranja: #f39a1d;
+  --verde: #73b43a;
+  --verde-escuro: #496b37;
+  --oliva: #a9aa7c;
+  --creme: #fff4e4;
+  --papel: #fffaf2;
+  --areia: #f3d6b9;
+  --rosa-papel: #f4cdbf;
+  --carvao: #22201f;
+  --carvao-2: #2d2a28;
+  --muted: #716a64;
+  --texto-suave: #4f4944;
+  --border: rgba(34, 32, 31, 0.12);
+  --shadow: 0 18px 50px rgba(78, 47, 24, 0.1);
+  --radius-sm: 12px;
+  --radius-md: 22px;
+  --radius-lg: 38px;
+  --radius-xl: 64px;
+  --max: 1180px;
+  --gutter: 28px;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  margin: 0;
+  color: var(--carvao);
+  background: var(--creme);
+  font-family: var(--sans);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.02;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+:focus-visible {
+  outline: 3px solid var(--laranja);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  border: 2px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(78, 47, 24, 0.16);
+}
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.btn--primary {
+  background: var(--vinho);
+  color: #fff;
+}
+.btn--outline {
+  border-color: currentColor;
+  background: transparent;
+}
+.btn--light {
+  background: var(--creme);
+  color: var(--carvao);
+}
+.btn--sm {
+  padding: 9px 16px;
+  font-size: 13px;
+}
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--rosa-papel);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.label {
+  color: var(--terracota);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+}
+
+/* Revelação ao rolar */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+@media (max-width: 850px) {
+  :root {
+    --gutter: 16px;
+  }
+  .section {
+    padding: 76px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

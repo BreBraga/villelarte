@@ -1,0 +1,29 @@
+.head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 46px;
+  align-items: end;
+}
+.title {
+  font-size: clamp(40px, 4.6vw, 56px);
+  margin-top: 8px;
+}
+.aside {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 640px;
+}
+.dark :global(.label) {
+  color: var(--laranja);
+}
+.dark .aside {
+  color: #c9c0b8;
+}
+
+@media (max-width: 850px) {
+  .head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

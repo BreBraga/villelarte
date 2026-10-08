@@ -1,0 +1,92 @@
+/* Scalloped valance across the top of the stage */
+.valance {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 46px;
+  z-index: 4;
+  background:
+    linear-gradient(var(--laranja), var(--laranja)) 0 16px / 100% 3px no-repeat,
+    radial-gradient(circle at 50% 0, var(--vinho) 23px, transparent 24px) 0 16px / 52px 30px repeat-x,
+    linear-gradient(var(--vinho), var(--vinho)) 0 0 / 100% 17px no-repeat;
+  filter: drop-shadow(0 6px 8px rgba(80, 10, 10, 0.25));
+}
+
+/* Design-system circles, revealed as the curtain opens */
+.dots {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.dots i {
+  position: absolute;
+  border-radius: 50%;
+  animation: pop 0.9s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+.dots .dotOliva {
+  --s: var(--dot-oliva, 300px);
+  width: var(--s);
+  height: var(--s);
+  left: calc(var(--s) * -0.3);
+  top: calc(var(--s) * -0.24);
+  background: var(--oliva);
+  animation-delay: 1.2s;
+}
+.dots .dotLaranja {
+  --s: var(--dot-laranja, 360px);
+  width: var(--s);
+  height: var(--s);
+  right: calc(var(--s) * -0.3);
+  top: calc(var(--s) * -0.34);
+  background: var(--laranja);
+  animation-delay: 1.35s;
+}
+.dots .dotAreia {
+  --s: var(--dot-areia, 420px);
+  width: var(--s);
+  height: var(--s);
+  left: calc(var(--s) * -0.36);
+  bottom: calc(var(--s) * -0.45);
+  background: #c2bf91;
+  animation-delay: 1.5s;
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Curtain panels */
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 51%;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0) 28%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0) 72%, rgba(0, 0, 0, 0.32)) 0 0 / 58px 100%,
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.18)),
+    var(--vinho);
+  animation-duration: 1.7s;
+  animation-delay: 0.35s;
+  animation-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+.left {
+  left: 0;
+  box-shadow: inset -14px 0 24px rgba(0, 0, 0, 0.35);
+  animation-name: openLeft;
+}
+.right {
+  right: 0;
+  box-shadow: inset 14px 0 24px rgba(0, 0, 0, 0.35);
+  animation-name: openRight;
+}
+@keyframes openLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% + var(--drape, 44px))); }
+}
+@keyframes openRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100% - var(--drape, 44px))); }
+}

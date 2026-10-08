@@ -1,0 +1,84 @@
+.footer {
+  padding: 56px 0 40px;
+  background: #1e1c1b;
+  color: #eee;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo {
+  background: var(--creme);
+  border-radius: 28px;
+  padding: 12px 18px;
+}
+.logo img {
+  height: 60px;
+  width: auto;
+}
+.motto {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+}
+.small {
+  font-size: 13px;
+  color: #8a817a;
+}
+.socials {
+  display: flex;
+  gap: 10px;
+}
+.socials a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background 0.2s;
+}
+.socials a:hover {
+  background: var(--terracota);
+}
+.socials svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+.bottom {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.whatsFloat {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+.whatsFloat:hover {
+  transform: scale(1.08);
+}
+.whatsFloat svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}

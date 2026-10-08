@@ -1,0 +1,154 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+}
+.photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 16px;
+}
+.photos figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 30px;
+  position: relative;
+}
+.photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photos figcaption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: rgba(255, 244, 228, 0.94);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.photos .wide {
+  grid-column: 1 / -1;
+  border-radius: 30px 30px 30px 120px;
+}
+.wide img {
+  object-position: center 60%;
+}
+/* the wide photo's large bottom-left radius would clip a left-aligned caption */
+.photos .wide figcaption {
+  left: auto;
+  right: 14px;
+}
+
+.poster {
+  border-radius: 42px;
+  padding: 42px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(160deg, #f8dabe, #fff0dc);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.poster::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: var(--laranja);
+  right: -70px;
+  top: -65px;
+}
+.poster::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 240px;
+  height: 180px;
+  border-radius: 48% 52% 38% 62%;
+  background: var(--oliva);
+  left: -90px;
+  bottom: -80px;
+}
+.poster h3 {
+  font-size: 44px;
+  margin: 32px 0 18px;
+}
+.rooms {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rooms li {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.hall {
+  margin-top: auto;
+  align-self: stretch;
+  background: var(--carvao);
+  color: #fff;
+  border-radius: 28px;
+  padding: 26px;
+}
+.hall h4 {
+  font-size: 26px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.hall p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+.hallNums {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+}
+.hallNums div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.hallNums dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--laranja);
+}
+.hallNums dt {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+@media (max-width: 850px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .poster {
+    padding: 30px;
+  }
+  .poster h3 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 560px) {
+  .photos {
+    grid-template-rows: 220px 180px;
+  }
+}
